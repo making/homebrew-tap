@@ -3,6 +3,8 @@ class Rsc < Formula
   homepage "https://github.com/making/rsc"
   version "0.5.1"
 
+  depends_on :arch => :x86_64
+
   if OS.mac?
     url "https://github.com/making/rsc/releases/download/#{version}/rsc-x86_64-apple-darwin"
     sha256 "6014fa8d834a7c645a0b8066fee8f73dc0e9986eeb64880aeef3f93144c713ca"
@@ -12,7 +14,11 @@ class Rsc < Formula
   end
 
   def install
-    libexec.install Dir["*"]
-    bin.install_symlink "#{libexec}/bin/rsc"
+    mv "rsc*", "rsc"
+    bin.install "rsc"
+  end
+
+  test do
+    system "#{bin}/rsc"
   end
 end
