@@ -14,7 +14,11 @@ class Rsc < Formula
   end
 
   def install
-    mv "rsc*", "rsc"
+    if OS.mac?
+      mv "rsc-x86_64-apple-darwin", "rsc"
+    elsif OS.linux?
+      mv "rsc-x86_64-pc-linux", "rsc"
+    end    
     bin.install "rsc"
   end
 
