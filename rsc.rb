@@ -1,16 +1,16 @@
 class Rsc < Formula
   desc "RSocket Client CLI (RSC)"
   homepage "https://github.com/making/rsc"
-  version "0.5.1"
+  version "0.6.0"
 
   depends_on :arch => :x86_64
 
   if OS.mac?
     url "https://github.com/making/rsc/releases/download/#{version}/rsc-x86_64-apple-darwin"
-    sha256 "6014fa8d834a7c645a0b8066fee8f73dc0e9986eeb64880aeef3f93144c713ca"
+    sha256 "0ef472c76bcded370a13e9abe4d368721e0a6d8f59cbbfd7267d1e3b4334c65d"
   elsif OS.linux?
     url "https://github.com/making/rsc/releases/download/#{version}/rsc-x86_64-pc-linux"
-    sha256 "ea5b48d0ae7e0107a6ab6d557fefdc6d1583551bc79430d9428e550113837b52"
+    sha256 "455d82016949befe3d37fd0cd23cfdaafe1faf44a4164af37de4532fcfca8158"
   end
 
   def install
