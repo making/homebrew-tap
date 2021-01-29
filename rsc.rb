@@ -2,6 +2,7 @@ class Rsc < Formula
   desc "RSocket Client CLI (RSC)"
   homepage "https://github.com/making/rsc"
   version "0.8.0"
+  license "Apache-2.0"
 
   depends_on :arch => :x86_64
 
@@ -20,6 +21,13 @@ class Rsc < Formula
       mv "rsc-x86_64-pc-linux", "rsc"
     end    
     bin.install "rsc"
+    chmod 0755, "#{bin}/rsc"
+    output = Utils.safe_popen_read("#{bin}/rsc", "--completion", "bash")
+    (bash_completion/"rsc").write output
+    output = Utils.safe_popen_read("#{bin}/rsc", "--completion", "zsh")
+    (zsh_completion/"_rsc").write output
+    output = Utils.safe_popen_read("#{bin}/rsc", "--completion", "fish")
+    (fish_completion/"rsc.fish").write output
   end
 
   test do
