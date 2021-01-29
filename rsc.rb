@@ -1,16 +1,16 @@
 class Rsc < Formula
   desc "RSocket Client CLI (RSC)"
   homepage "https://github.com/making/rsc"
-  version "0.7.3"
+  version "0.8.0"
 
   depends_on :arch => :x86_64
 
   if OS.mac?
     url "https://github.com/making/rsc/releases/download/#{version}/rsc-x86_64-apple-darwin"
-    sha256 "883a9ad4f24bf85765083d1dfef36fd4eca46d7c6e48b23f9c70387beddc866b"
+    sha256 "47745cef5b03cba8bab7bea54f94fee5da35ebd6278faf1a0b2d4ba67be697f6"
   elsif OS.linux?
     url "https://github.com/making/rsc/releases/download/#{version}/rsc-x86_64-pc-linux"
-    sha256 "18337bdc1cd96b4be00cdd77c49668c9cd23e45d896d0dcffb5026d9afd848ff"
+    sha256 "987753eccf1e88aa0c83a74decc88a0c77be4463de33ae7933d18e05f55a5190"
   end
 
   def install
@@ -20,6 +20,18 @@ class Rsc < Formula
       mv "rsc-x86_64-pc-linux", "rsc"
     end    
     bin.install "rsc"
+
+    # Install bash completion
+    output = Utils.safe_popen_read("#{bin}/rsc", "--completion", "bash")
+    (bash_completion/"rsc").write output
+
+    # Install zsh completion
+    output = Utils.safe_popen_read("#{bin}/rsc", "--completion", "zsh")
+    (zsh_completion/"_rsc").write output
+
+    # Install fish completion
+    output = Utils.safe_popen_read("#{bin}/rsc", "--completion", "fish")
+    (fish_completion/"rsc.fish").write output
   end
 
   test do
