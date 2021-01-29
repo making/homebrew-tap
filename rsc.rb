@@ -20,13 +20,6 @@ class Rsc < Formula
       mv "rsc-x86_64-pc-linux", "rsc"
     end    
     bin.install "rsc"
-    output = Utils.safe_popen_read({ "SHELL" => "bash" }, bin/"rsc", "--completion", "bash")
-    (bash_completion/"rsc").write output
-    output = Utils.safe_popen_read({ "SHELL" => "bash" }, bin/"rsc", "--completion", "zsh")
-    (zsh_completion/"_rsc").write output
-    output = Utils.safe_popen_read({ "SHELL" => "bash" }, bin/"rsc", "--completion", "fish")
-    (fish_completion/"rsc.fish").write output
-    prefix.install_metafiles
   end
 
   test do
