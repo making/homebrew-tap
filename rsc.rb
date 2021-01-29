@@ -20,21 +20,9 @@ class Rsc < Formula
       mv "rsc-x86_64-pc-linux", "rsc"
     end    
     bin.install "rsc"
-
-    # Install bash completion
-    output = Utils.safe_popen_read("#{bin}/rsc", "--completion", "bash")
-    (bash_completion/"rsc").write output
-
-    # Install zsh completion
-    output = Utils.safe_popen_read("#{bin}/rsc", "--completion", "zsh")
-    (zsh_completion/"_rsc").write output
-
-    # Install fish completion
-    output = Utils.safe_popen_read("#{bin}/rsc", "--completion", "fish")
-    (fish_completion/"rsc.fish").write output
   end
 
   test do
-    system "#{bin}/rsc"
+    system "#{bin}/rsc -v"
   end
 end
