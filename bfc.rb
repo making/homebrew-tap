@@ -1,4 +1,4 @@
-class bfc < Formula
+class Bfc < Formula
   desc "Braininf*ck Compiler/Interpreter"
   homepage "https://github.com/making/bfc"
   version "0.1.0-SNAPSHOT"
