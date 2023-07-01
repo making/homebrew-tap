@@ -1,17 +1,17 @@
 class Bfc < Formula
   desc "Braininf*ck Compiler/Interpreter"
   homepage "https://github.com/making/bfc"
-  version "0.1.0-SNAPSHOT"
+  version "0.1.0"
   license "Apache-2.0"
 
   depends_on :arch => :x86_64
 
   if OS.mac?
     url "https://github.com/making/bfc/releases/download/#{version}/bfc-x86_64-apple-darwin"
-    sha256 "8553e7682060b942b3e1904f7a061f8391ac7ef0bea0e307cbdcdb04d7c984f5"
+    sha256 "d9d284beecb37f26bb830c0daba48fc5623985c6303b801c85dd5c05cc4d6593"
   elsif OS.linux?
     url "https://github.com/making/bfc/releases/download/#{version}/bfc-x86_64-pc-linux"
-    sha256 "6e8fd3dd152a51a6f10cfae1ba44af806ece59a44e0b45a1ecf612a0a736cb5a"
+    sha256 "1fc62e97f29208c16e28c128ed4d1aec66d10422b914ea75e41d12c058fe3e2e"
   end
 
   def install
