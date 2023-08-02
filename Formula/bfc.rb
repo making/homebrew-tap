@@ -14,7 +14,7 @@ class Bfc < Formula
       end
   elsif OS.linux?
     url "https://github.com/making/bfc/releases/download/#{version}/bfc-x86_64-pc-linux"
-    sha256 "1fc62e97f29208c16e28c128ed4d1aec66d10422b914ea75e41d12c058fe3e2e"
+    sha256 "13e060cd613e362d723851e191a59da543aff2c67806f4c9d9a94da76343fc6a"
   end
 
   def install
